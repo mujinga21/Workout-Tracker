@@ -21,15 +21,9 @@ mongoose.connect("mongodb://localhost/workout", {
   useFindAndModify:false
  });
 
-// db.exercises.create({ name: "Workout Plan" })
-//   .then(dbExercise => {
-//     console.log(dbExercise);
-//   })
-//   .catch(({ message }) => {
-//     console.log(message);
-//   });
-app.use(require("./route/apiRoute"));
-app.use(require("./route/htmlRoute"));
+
+app.use(require("./routes/api"));
+app.use(require("./routes/html"));
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
   });
