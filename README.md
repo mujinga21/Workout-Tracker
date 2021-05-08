@@ -1,34 +1,5 @@
 # Workout-Tracker
-function renderLicenseBadge(license) {
-  if (license === "ISC") {
-    return (license =
-      "[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)]");
-  } else if (license == "MIT") {
-    return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]";
-  } else return "";
-}
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {
-  if (license === "ISC") {
-    return (license = "(https://opensource.org/licenses/ISC)");
-  } else if (license === "MIT") {
-    return (license = "(https://opensource.org/licenses/MIT)");
-  } else return "";
-}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {
-  return renderLicenseBadge(license) + renderLicenseLink(license);
-}
-
-// TODO: Create a function to generate markdown for README
-
-function generateMarkdown(data) {
-  return `## ${data.title}
-${renderLicenseBadge(data.license)}
   ## Table of Contents
 
   * [Description](#description)
@@ -39,18 +10,28 @@ ${renderLicenseBadge(data.license)}
   * [Test](#test)
   * [Question](#question)
   ## Installation
+  used Mongoose and Express to build the file.
   ${data.installation}
   ## Usage
+  * As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.
   ${data.usage}
   ## License
   ${renderLicenseLink(data.license)}
   ## Description
+
+  * Add exercises to the most recent workout plan.
+
+  * Add new exercises to a new workout plan.
+
+  * View the combined weight of multiple exercises from the past seven workouts on the `stats` page.
+
+  * View the total duration of each workout from the past seven workouts on the `stats` page.
   ${data.description}
   ## Contribution
   ${data.contribution}
   ## Test
   ${data.test} 
-
+used localhost:3001 and heroku to test the app.
 
   ## Questions
 If you have questions about my projects please long into my GitHub at the address below:
