@@ -27,18 +27,18 @@ router.put("/api/workouts/:id", (req, res) => {
   
 })
 
-app.post("/api/:exercise/:_id", (req, res) => {
-  Exercise.create({
-    exercise_name: req.body.Exercise,
-    duration: req.body.duration,
-    weight:req.body.weight,
-    reps:req.body.reps,
-    sets:req.body.sets,
-   }).then(exercise => {
-     console.log("new workout");
-     res.redirect("/api/:exercise/:_id")
-   });
-});
+// app.post("/api/:exercise/:_name", (req, res) => {
+//   Exercise.create({
+//     exercise_name: req.body.Exercise,
+//     duration: req.body.duration,
+//     weight:req.body.weight,
+//     reps:req.body.reps,
+//     sets:req.body.sets,
+//    }).then(exercise => {
+//      console.log("new workout");
+//      res.redirect("/api/:exercise/:_id")
+//    });
+// });
 db.workout.aggregate( 
   {
     $group: {
