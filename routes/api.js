@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { Exercise } = require("../models/index.js");
 // const { Exercise } = require("../models/index.js");
 const Workout = require("../models/workout.js");
 
@@ -23,6 +24,23 @@ router.put("/api/workouts/:id", (req, res) => {
   }).catch(err => {
     RES.JSON(ERR);
 })
+  
+})
+
+app.post("/api/:exercise/:_id", (req, res) => {
+  Exercise.create({
+    exercise_name: req.body.Exercise,
+    duration: req.body.duration,
+    weight:req.body.weight,
+    reps:req.body.reps,
+    sets:req.body.sets,
+   }).then(exercise => {
+     console.log("new workout");
+     res.redirect("/api/:exercise/:_id")
+   });
+});
+
+
   
 })
 
