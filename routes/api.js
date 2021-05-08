@@ -39,8 +39,31 @@ app.post("/api/:exercise/:_id", (req, res) => {
      res.redirect("/api/:exercise/:_id")
    });
 });
+db.workout.aggregate( 
+  {
+    $group: {
+    _id: {
+      weight: '$weight',
+    },
+count:{
+  $sum:[0,1,2,3,4,5,6,7]
+}
+    }
+  }
 
+)
 
-  
-})
+db.workout.aggregate( 
+  {
+    $group: {
+    _id: {
+      weight: '$duration',
+    },
+count:{
+  $sum:[0,1,2,3,4,5,6]
+}
+    }
+  }
 
+)
+module.exports = router;
