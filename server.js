@@ -17,16 +17,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-
-mongoose.connect("mongodb://localhost/workout", { 
-  useNewUrlParser: true,
-  useFindAndModify:false
- });
-
-
 app.use("/api", api);
-app.use("/",html);
-app.listen(PORT, () => {
-    console.log(`App running on port ${PORT}!`);
-  });
+app.use("/", html);
+mongoose.connect("mongodb://localhost/workout", {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true 
+});
 
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}!`);
+});
